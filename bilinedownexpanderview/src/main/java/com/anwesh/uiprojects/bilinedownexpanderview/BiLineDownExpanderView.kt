@@ -207,4 +207,13 @@ class BiLineDownExpanderView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BiLineDownExpanderView {
+            val view : BiLineDownExpanderView = BiLineDownExpanderView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
