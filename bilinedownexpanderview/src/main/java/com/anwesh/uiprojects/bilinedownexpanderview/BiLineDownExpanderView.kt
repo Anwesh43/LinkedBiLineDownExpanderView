@@ -182,4 +182,26 @@ class BiLineDownExpanderView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiLineDownExpanderView) {
+
+        private val animator : Animator = Animator(view)
+        private val blde : BiLineDownExpander = BiLineDownExpander(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            blde.draw(canvas, paint)
+            animator.animate {
+                blde.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            blde.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
