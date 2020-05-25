@@ -33,6 +33,7 @@ fun Canvas.drawBiLineDownExpanderLine(i : Int, scale : Float, size : Float, pain
     save()
     translate(0f, size * si * (1 - sf2))
     drawLine(0f, 0f, size * sf1 * si, 0f, paint)
+    drawLine(size * si, size * si * sf2, size * si, 0f, paint)
     restore()
 }
 
